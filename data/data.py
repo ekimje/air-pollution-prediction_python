@@ -3,7 +3,7 @@ import os
 from datetime import datetime, timedelta
 
 # 다운 받은 파일들 excel -> csv 파일 변경
-input_files = 'C:/air_pollution_project_python/airKorea_excel'
+input_files = 'airKorea_excel'
 
 for root, dirs, files in os.walk(input_files):
     for file in files:
@@ -73,7 +73,7 @@ for root, dirs, files in os.walk(input_files):
         
 # 기상 데이터와 미세 먼지의 공통 데이터 컬럼 맞추기. 지역과 시간.
 
-df =pd.read_csv('C:\\air_pollution_project_python\\OBS_ASOS_TIM_20260318081505.csv', encoding='cp949')
+df =pd.read_csv('data/OBS_ASOS_TIM_20260318081505.csv', encoding='cp949')
 
 df=df.drop('지점',axis=1)
 print(df.columns)
@@ -82,9 +82,9 @@ df = df.rename(columns={'지점명':'지역','일시':'datetime','기온(°C)':'
 pm_df['datetime'] = pd.to_datetime(pm_df['datetime'])
 df['datetime'] = pd.to_datetime(df['datetime'])
 
-df.to_csv('C:\\air_pollution_project_python\\weather_processed.csv',encoding="utf-8-sig")
+df.to_csv('data/weather_processed.csv',encoding="utf-8-sig")
 
 # 두 데이터 merge. 특정 열을 기준으로 정렬. 지역과 datetime 일치
 
 merge_df = pd.merge(df, pm_df, on=['지역','datetime'],how='inner')
-merge_df.to_csv("C:\\air_pollution_project_python\\weather_pm.csv",index=False, encoding="utf-8-sig")
+merge_df.to_csv("data/weather_pm.csv",index=False, encoding="utf-8-sig")

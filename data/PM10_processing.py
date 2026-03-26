@@ -1,7 +1,7 @@
 import pandas as pd
 
 def PM10_processing():
-    data = pd.read_csv('C:\\air_pollution_prediction_python\\data\\weather_pm.csv', usecols=['지역','datetime','PM10'],encoding='utf-8-sig')
+    data = pd.read_csv('data/weather_pm.csv', usecols=['지역','datetime','PM10'],encoding='utf-8-sig')
     data['datetime'] = pd.to_datetime(data['datetime'])
 
     data = data.sort_values(['지역','datetime'].copy())

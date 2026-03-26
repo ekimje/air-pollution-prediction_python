@@ -1,8 +1,8 @@
 # 미세먼지 + 기상 데이터
 import pandas as pd
 
-def PM10_processing():
-    data = pd.read_csv('C:\\air_pollution_prediction_python\\data\\weather_pm.csv', encoding='utf-8-sig')
+def PM10_and_weather_processing():
+    data = pd.read_csv('data/weather_pm.csv', encoding='utf-8-sig')
     data['datetime'] = pd.to_datetime(data['datetime'])
 
     data = data.sort_values(['지역','datetime'].copy())
@@ -29,7 +29,7 @@ def split_data(data):
     
     return train, test
 
-def PM10_data(train, test): 
+def PM10_and_weather_data(train, test): 
     x_train = train.drop(['datetime','target_t+1','target_t+3'], axis=1)
     y_train_1 = train['target_t+1']
     y_train_3 = train['target_t+3']
