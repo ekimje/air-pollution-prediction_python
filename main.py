@@ -114,7 +114,7 @@ result.append({
     **xgb_pm10_weather_result3
 })
 
-with open('result.json','w',encoding = 'utf-8') as file:
+with open('result2.json','w',encoding = 'utf-8') as file:
     json.dump(result,file,ensure_ascii=False, indent=4)
     
 report(result)

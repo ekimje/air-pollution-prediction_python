@@ -73,7 +73,7 @@ for root, dirs, files in os.walk(input_files):
         
 # 기상 데이터와 미세 먼지의 공통 데이터 컬럼 맞추기. 지역과 시간.
 
-df =pd.read_csv('data/OBS_ASOS_TIM_20260318081505.csv', encoding='cp949')
+df =pd.read_csv('data/OBS_ASOS_TIM_20260401124841.csv', encoding='cp949')
 
 df=df.drop('지점',axis=1)
 print(df.columns)
