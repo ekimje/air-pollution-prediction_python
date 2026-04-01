@@ -8,6 +8,7 @@ from model.params.rf_params import rf_pm10_weather_params as pm10_weather_params
 from model.params.xgb_params import xgb_pm10_params as xgb_pm10_params
 from model.params.xgb_params import xgb_pm10_weather_params as xgb_pm10_weather_params
 from report import report
+import data.data as data
 import json
 
 pm10_data = PM10_processing()

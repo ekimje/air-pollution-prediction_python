@@ -27,7 +27,7 @@ def train_test(x_train, y_train,param_dist):
             n_iter=20,
             scoring='neg_mean_absolute_error',
             verbose=1,
-            n_jobs=1,
+            n_jobs=-1,
             cv=inner_tscv,
             random_state=42
         )

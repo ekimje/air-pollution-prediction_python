@@ -2,6 +2,8 @@ import pandas as pd
 import os
 from datetime import datetime, timedelta
 
+print("데이터 변환 시작")
+
 # 다운 받은 파일들 excel -> csv 파일 변경
 input_files = 'airKorea_excel'
 
@@ -68,8 +70,8 @@ for root, dirs, files in os.walk(input_files):
 
         file_list.append(file_melt)
 
-    pm_df = pd.concat(file_list,ignore_index=True)
-    pm_df.to_csv("PM_processed.csv",index=False)
+pm_df = pd.concat(file_list,ignore_index=True)
+pm_df.to_csv("PM_processed.csv",index=False)
         
 # 기상 데이터와 미세 먼지의 공통 데이터 컬럼 맞추기. 지역과 시간.
 
