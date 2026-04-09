@@ -29,9 +29,9 @@ xgboost = df[df['model']=='XGBoost'].sort_values(by='Data',ascending=False)
 
 # 그래프 생성
 for i in ['val_mae','val_r2']:
-    plt.bar(idx-w,linear[i],width=w,label='Linear')
-    plt.bar(idx,random[i],width=w,label='Random')
-    plt.bar(idx+w,xgboost[i],width=w,label='XGB')
+    plt.bar(idx-w,linear[i],width=w,color = 'gray',label='Linear')
+    plt.bar(idx,random[i],width=w,color = 'lightgray',label='Random')
+    plt.bar(idx+w,xgboost[i],width=w,color = 'darkgray',label='XGB')
     plt.xticks(idx,data,rotation=30)
     plt.xlabel('Data Contitions')
     plt.ylabel(i)

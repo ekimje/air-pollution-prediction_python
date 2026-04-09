@@ -24,8 +24,8 @@ def PM10_and_weather_processing():
 
 def split_data_PM10_and_weather(data):
     # 시계열 분리. 한... 2026년 3월 3일까지
-    train = data[data['datetime']<'2026-03-15'].copy()
-    test = data[data['datetime']>='2026-03-15'].copy()
+    train = data[data['datetime']<'2026-03-01'].copy()
+    test = data[data['datetime']>='2026-03-01'].copy()
     
     return train, test
 
