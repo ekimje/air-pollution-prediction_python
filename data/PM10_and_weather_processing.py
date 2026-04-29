@@ -7,7 +7,7 @@ def PM10_and_weather_processing():
 
     data = data.sort_values(['지역','datetime'].copy())
 
-    columns = ['PM10','PM10','wind','temp','humidity']
+    columns = ['PM10','wind','temp','humidity']
 
     for col in columns:
         data[f'{col}_t-1'] = data.groupby('지역')[col].shift(1)
