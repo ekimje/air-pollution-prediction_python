@@ -21,18 +21,21 @@ def plot_metrics(df:pd.DataFrame, save_prefix:str | None = None)->None:
     random = df[df['model']=='Random'].sort_values(by='Data',ascending=False)
     xgboost = df[df['model']=='XGBoost'].sort_values(by='Data',ascending=False)
     for i in ['val_mae','val_r2']:
+        
+        plt.figure(figsize=(8,5))
+        
         plt.bar(idx-w,linear[i],width=w,color = 'gray',label='Linear')
         plt.bar(idx,random[i],width=w,color = 'lightgray',label='Random')
         plt.bar(idx+w,xgboost[i],width=w,color = 'darkgray',label='XGB')
-    plt.xticks(idx,data,rotation=30)
-    plt.xlabel('Data Contitions')
-    plt.ylabel(i)
-    plt.legend()
-    plt.title(f'{i} by Data and Model')
-    if save_prefix:
-        plt.savefig(f'{save_prefix}_{i}.png')
-    else:
-        plt.show()
+        plt.xticks(idx,data,rotation=30)
+        plt.xlabel('Data Contitions')
+        plt.ylabel(i)
+        plt.legend()
+        plt.title(f'{i} by Data and Model')
+        if save_prefix:
+            plt.savefig(f'{save_prefix}_{i}.png')
+        else:
+            plt.show()
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='validation metrics by model and dataset.')
